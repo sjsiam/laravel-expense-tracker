@@ -138,7 +138,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark">
             <div class="container">
-                <a class="navbar-brand fw-bold" href="{{ url('/home') }}">
+                <a class="navbar-brand fw-bold" href="{{ url('/') }}">
                     <i class="fas fa-wallet me-2"></i>
                     {{ config('app.name', 'Expense Tracker') }}
                 </a>

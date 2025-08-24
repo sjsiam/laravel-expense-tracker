@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Expense;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,14 +40,25 @@ class ExpenseController extends Controller
         return redirect()->route('expenses.index')->with('success', 'Expense added successfully!');
     }
 
-    public function edit($id)
+    public function edit(Expense $expense)
     {
-        return view('expenses.edit', compact('id'));
+        $categories = Category::all();
+        return view('expenses.edit', compact('expense', 'categories'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, Expense $expense)
     {
-        // Validate and update the expense
+
+        $expenseData = $request->validate([
+            'title' => 'required|string|max:255',
+            'amount' => 'required|numeric|min:0.01',
+            'date' => 'required|date',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        $expense->update($expenseData);
+
+        return redirect()->route('expenses.index')->with('success', 'Expense updated successfully!');
     }
 
     public function show($id)
