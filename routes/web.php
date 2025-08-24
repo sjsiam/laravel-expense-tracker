@@ -5,11 +5,10 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home')->name('home');
-
-Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 
 // Registration Routes
 Route::view('register', 'auth.register')->middleware('guest')->name('register');
@@ -23,6 +22,10 @@ Route::post('logout', [LoginController::class, 'logout'])->middleware('auth')->n
 
 
 Route::middleware('auth')->group(function () {
+    Route::get('dashboard', DashboardController::class)->middleware('auth')->name('dashboard');
+    Route::get('/reports/monthly', ReportController::class)->name('reports.monthly');
+
+    // Expenses
     Route::get('expenses', [ExpenseController::class, 'index'])->name('expenses.index');
     Route::get('expenses/create', [ExpenseController::class, 'create'])->name('expenses.create');
     Route::post('expenses', [ExpenseController::class, 'store'])->name('expenses.store');

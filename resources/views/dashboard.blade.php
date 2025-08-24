@@ -39,7 +39,7 @@
                                 <i class="fas fa-calendar-month fa-2x"></i>
                             </div>
                             <div>
-                                <div class="h5 mb-0 font-weight-bold">₹{{ number_format($currentMonthExpenses, 2) }}</div>
+                                <div class="h5 mb-0 font-weight-bold">৳{{ number_format($currentMonthExpenses, 2) }}</div>
                                 <div class="small">This Month</div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
                                 <i class="fas fa-calendar-day fa-2x"></i>
                             </div>
                             <div>
-                                <div class="h5 mb-0 font-weight-bold">₹{{ number_format($todayExpenses, 2) }}</div>
+                                <div class="h5 mb-0 font-weight-bold">৳{{ number_format($todayExpenses, 2) }}</div>
                                 <div class="small">Today</div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                             </div>
                             <div>
                                 <div class="h5 mb-0 font-weight-bold">
-                                    ₹{{ $totalExpenses > 0 ? number_format($currentMonthExpenses / max($totalExpenses, 1), 2) : '0.00' }}
+                                    ৳{{ $totalExpenses > 0 ? number_format($currentMonthExpenses / max($totalExpenses, 1), 2) : '0.00' }}
                                 </div>
                                 <div class="small">Avg per Expense</div>
                             </div>
@@ -113,7 +113,7 @@
                                             </span>
                                         </div>
                                         <div class="text-end">
-                                            <h5 class="mb-0 text-primary">₹{{ number_format($expense->amount, 2) }}</h5>
+                                            <h5 class="mb-0 text-primary">৳{{ number_format($expense->amount, 2) }}</h5>
                                         </div>
                                     </div>
                                 </div>

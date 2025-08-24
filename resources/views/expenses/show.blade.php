@@ -43,7 +43,7 @@
                                 <strong>Amount:</strong>
                             </div>
                             <div class="col-sm-9">
-                                <span class="h4 text-primary">₹{{ number_format($expense->amount, 2) }}</span>
+                                <span class="h4 text-primary">৳{{ number_format($expense->amount, 2) }}</span>
                             </div>
                         </div>
 

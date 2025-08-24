@@ -89,7 +89,11 @@
                                     <i class="fas fa-plus me-2"></i>
                                     Add Expense
                                 </a>
-                                {{-- @todo - Add Monthly Report --}}
+                                <a class="nav-link {{ request()->routeIs('reports.*') ? 'active' : '' }}"
+                                    href="{{ route('reports.monthly') }}">
+                                    <i class="fas fa-chart-bar me-2"></i>
+                                    Monthly Report
+                                </a>
                             </nav>
                         </div>
                     </div>
