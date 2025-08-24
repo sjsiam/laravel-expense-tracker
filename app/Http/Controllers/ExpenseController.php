@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Expense;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class ExpenseController extends Controller
 {
@@ -42,12 +43,19 @@ class ExpenseController extends Controller
 
     public function edit(Expense $expense)
     {
+        if (!Auth::user()->can('update', $expense)) {
+            return redirect()->route('expenses.index')->with('error', 'You do not have permission to edit this expense.');
+        }
         $categories = Category::all();
         return view('expenses.edit', compact('expense', 'categories'));
     }
 
     public function update(Request $request, Expense $expense)
     {
+
+        if (!Auth::user()->can('update', $expense)) {
+            return redirect()->route('expenses.index')->with('error', 'You do not have permission to edit this expense.');
+        }
 
         $expenseData = $request->validate([
             'title' => 'required|string|max:255',
@@ -63,11 +71,18 @@ class ExpenseController extends Controller
 
     public function show(Expense $expense)
     {
+        if (!Auth::user()->can('view', $expense)) {
+            return redirect()->route('expenses.index')->with('error', 'You do not have permission to view this expense.');
+        }
         return view('expenses.show', compact('expense'));
     }
 
     public function destroy(Expense $expense)
     {
+        if (!Auth::user()->can('delete', $expense)) {
+            return redirect()->route('expenses.index')->with('error', 'You do not have permission to delete this expense.');
+        }
+
         $expense->delete();
 
         return redirect()->route('expenses.index')->with('success', 'Expense deleted successfully!');
