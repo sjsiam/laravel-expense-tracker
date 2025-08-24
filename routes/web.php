@@ -2,13 +2,14 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::view('/', 'home')->name('home');
 
-Route::view('dashboard', 'dashboard')->middleware('auth')->name('dashboard');
+Route::get('dashboard', [DashboardController::class, 'dashboard'])->middleware('auth')->name('dashboard');
 
 // Registration Routes
 Route::view('register', 'auth.register')->middleware('guest')->name('register');

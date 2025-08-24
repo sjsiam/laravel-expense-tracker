@@ -31,7 +31,7 @@
                         </a>
                     </div>
                 @else
-                    <a href="{{ route('home') }}" class="btn-hero primary">
+                    <a href="{{ route('dashboard') }}" class="btn-hero primary">
                         <i class="fas fa-tachometer-alt me-2"></i>
                         Go to Dashboard
                     </a>
