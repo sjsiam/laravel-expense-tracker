@@ -1,0 +1,1 @@
+This will show details of a specific expense
