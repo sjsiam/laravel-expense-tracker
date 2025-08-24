@@ -2,23 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ExpenseController extends Controller
 {
     public function index()
     {
-        return view('expenses.index');
+        $expenses = Auth::user()->expenses()
+            ->with('category')
+            ->orderBy('date', 'desc')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('expenses.index', compact('expenses'));
     }
 
     public function create()
     {
-        return view('expenses.create');
+        $categories = Category::all();
+        return view('expenses.create', compact('categories'));
     }
 
     public function store(Request $request)
     {
-        // Validate and store the expense
+        $expenseData = $request->validate([
+            'title' => 'required|string|max:255',
+            'amount' => 'required|numeric|min:0.01',
+            'date' => 'required|date',
+            'category_id' => 'required|exists:categories,id',
+        ]);
+
+        Auth::user()->expenses()->create($expenseData);
+
+        return redirect()->route('expenses.index')->with('success', 'Expense added successfully!');
     }
 
     public function edit($id)
