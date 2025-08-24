@@ -61,9 +61,9 @@ class ExpenseController extends Controller
         return redirect()->route('expenses.index')->with('success', 'Expense updated successfully!');
     }
 
-    public function show($id)
+    public function show(Expense $expense)
     {
-        return view('expenses.show', compact('id'));
+        return view('expenses.show', compact('expense'));
     }
 
     public function destroy(Expense $expense)
