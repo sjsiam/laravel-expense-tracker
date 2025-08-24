@@ -50,7 +50,7 @@
                                                 </td>
                                                 <td>
                                                     <strong
-                                                        class="text-primary">₹{{ number_format($expense->amount, 2) }}</strong>
+                                                        class="text-primary">৳{{ number_format($expense->amount, 2) }}</strong>
                                                 </td>
                                                 <td>
                                                     <div class="btn-group" role="group">
