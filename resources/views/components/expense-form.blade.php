@@ -32,7 +32,7 @@
             <div class="mb-3">
                 <label for="date" class="form-label">Date <span class="text-danger">*</span></label>
                 <input type="date" class="form-control @error('date') is-invalid @enderror" id="date"
-                    name="date" value="{{ old('date', $expense->date->format('Y-m-d') ?? today()->format('Y-m-d')) }}" required>
+                    name="date" value="{{ old('date', isset($expense) ? $expense->date->format('Y-m-d') : today()->format('Y-m-d')) }}" required>
                 @error('date')
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

@@ -65,4 +65,11 @@ class ExpenseController extends Controller
     {
         return view('expenses.show', compact('id'));
     }
+
+    public function destroy(Expense $expense)
+    {
+        $expense->delete();
+
+        return redirect()->route('expenses.index')->with('success', 'Expense deleted successfully!');
+    }
 }
