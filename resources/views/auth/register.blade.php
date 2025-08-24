@@ -2,14 +2,18 @@
 
 @section('title', 'Register')
 
+@push('head')
+    @vite(['resources/css/auth.css'])
+@endpush
+
 @section('content')
-    <div class="auth-card">
+    <div class="hero-card">
         <div class="auth-header">
-            <div class="auth-icon">
+            <div class="hero-icon">
                 <i class="fas fa-user-plus"></i>
             </div>
-            <h2 class="auth-title">Create Account</h2>
-            <p class="auth-subtitle">Join us to start tracking your expenses</p>
+            <h2 class="hero-title">Create Account</h2>
+            <p class="hero-subtitle">Join us to start tracking your expenses</p>
         </div>
 
         <form method="POST" action="{{ route('register.store') }}">

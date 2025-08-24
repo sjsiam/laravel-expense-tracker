@@ -2,14 +2,18 @@
 
 @section('title', 'Login')
 
+@push('head')
+    @vite(['resources/css/auth.css'])
+@endpush
+
 @section('content')
-    <div class="auth-card">
+    <div class="hero-card">
         <div class="auth-header">
-            <div class="auth-icon">
+            <div class="hero-icon">
                 <i class="fas fa-sign-in-alt"></i>
             </div>
-            <h2 class="auth-title">Welcome Back</h2>
-            <p class="auth-subtitle">Sign in to your account to continue</p>
+            <h2 class="hero-title">Welcome Back</h2>
+            <p class="hero-subtitle">Sign in to your account to continue</p>
         </div>
 
         <form method="POST" action="{{ route('login.attempt') }}">

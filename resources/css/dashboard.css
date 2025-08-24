@@ -1,0 +1,68 @@
+body {
+    font-family: "Nunito", sans-serif;
+    background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+    min-height: 100vh;
+}
+
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.sidebar {
+    background: white;
+    min-height: calc(100vh - 76px);
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    border-radius: 0 12px 12px 0;
+}
+
+.sidebar .nav-link {
+    color: #64748b;
+    padding: 12px 20px;
+    margin: 4px 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateX(4px);
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.stat-card.success {
+    background: linear-gradient(135deg, var(--success-color), #059669);
+}
+
+.stat-card.warning {
+    background: linear-gradient(135deg, var(--warning-color), #d97706);
+}
+
+.stat-card.danger {
+    background: linear-gradient(135deg, var(--danger-color), #dc2626);
+}
+
+.expense-item {
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.2s ease;
+}
+
+.expense-item:hover {
+    background-color: #f1f5f9;
+    border-left-width: 6px;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
