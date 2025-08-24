@@ -15,5 +15,6 @@ Route::post('register', RegisterController::class)->middleware('guest')->name('r
 
 // Login Routes
 Route::view('login', 'auth.login')->middleware('guest')->name('login');
+Route::post('login', [LoginController::class, 'login'])->middleware('guest')->name('login.attempt');
 
-Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+Route::post('logout', [LoginController::class, 'logout'])->middleware('auth')->name('logout');

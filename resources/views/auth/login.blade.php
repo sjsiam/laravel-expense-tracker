@@ -12,7 +12,7 @@
             <p class="auth-subtitle">Sign in to your account to continue</p>
         </div>
 
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login.attempt') }}">
             @csrf
 
             <div class="form-group">
