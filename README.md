@@ -1,61 +1,325 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Expense Tracker
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern, feature-rich expense tracking application built with Laravel 12, designed to help users manage their personal finances efficiently.
 
-## About Laravel
+## 🌟 Live Demo
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Live Application:** [https://expense-tracker.sjsiam.com/](https://expense-tracker.sjsiam.com/)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Test Credentials:**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Email:** test@example.com
+- **Password:** 12345678
 
-## Learning Laravel
+## ✨ Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🔐 Authentication & User Management
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- User registration and login system
+- Secure password hashing
+- Session-based authentication
+- User-specific data isolation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 💰 Expense Management
 
-## Laravel Sponsors
+- **CRUD Operations:** Create, Read, Update, Delete expenses
+- **Categorization:** Organize expenses by predefined categories
+- **Amount Tracking:** Precise decimal amount handling
+- **Date Management:** Track expenses by specific dates
+- **User Authorization:** Users can only manage their own expenses
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 📊 Dashboard & Analytics
 
-### Premium Partners
+- **Overview Statistics:** Total expenses, current month, today's spending
+- **Recent Expenses:** Latest 5 expense entries
+- **Visual Insights:** Quick financial overview
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 📈 Reporting System
 
-## Contributing
+- **Monthly Reports:** Detailed expense breakdown by month
+- **Category Analysis:** Spending patterns by expense category
+- **Chart Visualization:** Visual representation of spending data
+- **Filterable Data:** Select specific months for analysis
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 🎨 User Interface
 
-## Code of Conduct
+- **Responsive Design:** Mobile-friendly Bootstrap-based interface
+- **Modern UI:** Clean, intuitive user experience
+- **Font Awesome Icons:** Visual enhancement for better UX
+- **Sidebar Navigation:** Easy access to all features
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🛠️ Technology Stack
 
-## Security Vulnerabilities
+### Backend
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- **Framework:** Laravel 12.x
+- **PHP Version:** 8.2+
+- **Database:** MySQL
+- **Authentication:** Laravel's built-in auth system
 
-## License
+### Frontend
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- **CSS Framework:** Bootstrap 5.3.0
+- **Icons:** Font Awesome 6.0.0
+- **Build Tool:** Vite 7.x
+
+### Development Tools
+
+- **Testing:** Pest PHP
+- **Code Quality:** Laravel Pint
+- **Package Manager:** Composer
+- **Node Package Manager:** npm
+
+## 📁 Project Structure
+
+```plaintext
+laravel-expense-tracker/
+├── app/
+│   ├── Http/Controllers/          # Application controllers
+│   │   ├── Auth/                 # Authentication controllers
+│   │   ├── DashboardController   # Dashboard logic
+│   │   ├── ExpenseController     # Expense CRUD operations
+│   │   └── ReportController      # Reporting functionality
+│   ├── Models/                   # Eloquent models
+│   │   ├── User.php             # User model with expenses relationship
+│   │   ├── Expense.php          # Expense model with validation
+│   │   └── Category.php         # Category model for expense organization
+│   └── Policies/                 # Authorization policies
+├── database/
+│   ├── migrations/               # Database schema
+│   └── seeders/                  # Initial data population
+├── resources/
+│   └── views/                    # Blade templates
+│       ├── auth/                 # Authentication views
+│       ├── dashboard/            # Dashboard interface
+│       ├── expenses/             # Expense management views
+│       └── reports/              # Reporting interface
+└── routes/
+    └── web.php                   # Web application routes
+```
+
+## 🚀 Installation
+
+### Prerequisites
+
+- PHP 8.2 or higher
+- Composer
+- Node.js & npm
+- Database (MySQL)
+
+### Step-by-Step Setup
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd laravel-expense-tracker
+   ```
+
+2. **Install PHP dependencies**
+
+   ```bash
+   composer install
+   ```
+
+3. **Install Node.js dependencies**
+
+   ```bash
+   npm install
+   ```
+
+4. **Environment configuration**
+
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+5. **Database setup**
+
+   ```bash
+   # Configure database in .env file
+   php artisan migrate
+   php artisan db:seed
+   ```
+
+6. **Build assets**
+
+   ```bash
+   npm run build
+   ```
+
+7. **Start the application**
+
+   ```bash
+   php artisan serve
+   ```
+
+### Quick Development Setup
+
+```bash
+composer run dev  # Starts server, queue, and Vite simultaneously
+```
+
+## 📊 Database Schema
+
+### Users Table
+
+- `id` - Primary key
+- `name` - User's full name
+- `email` - Unique email address
+- `password` - Hashed password
+- `email_verified_at` - Email verification timestamp
+- `remember_token` - Remember me token
+- `created_at`, `updated_at` - Timestamps
+
+### Categories Table
+
+- `id` - Primary key
+- `name` - Category name (Food, Transport, Shopping, Others)
+- `color` - Hex color code for UI representation
+- `created_at`, `updated_at` - Timestamps
+
+### Expenses Table
+
+- `id` - Primary key
+- `user_id` - Foreign key to users table
+- `category_id` - Foreign key to categories table
+- `title` - Expense description
+- `amount` - Decimal amount (10,2 precision)
+- `date` - Expense date
+- `created_at`, `updated_at` - Timestamps
+
+## 🔐 Authentication & Authorization
+
+### User Registration
+
+- Email and password validation
+- Automatic login after successful registration
+- Password confirmation requirement
+
+### User Login
+
+- Email/password authentication
+- Remember me functionality
+- Session-based authentication
+
+### Authorization Policies
+
+- Users can only view/edit/delete their own expenses
+- Category access is public (read-only)
+- Dashboard data is user-specific
+
+## 📱 API Endpoints
+
+### Public Routes
+
+- `GET /` - Home page
+- `GET /register` - Registration form
+- `POST /register` - User registration
+- `GET /login` - Login form
+- `POST /login` - User authentication
+
+### Protected Routes (Require Authentication)
+
+- `GET /dashboard` - User dashboard
+- `GET /expenses` - List user expenses
+- `GET /expenses/create` - Create expense form
+- `POST /expenses` - Store new expense
+- `GET /expenses/{id}/edit` - Edit expense form
+- `PUT /expenses/{id}` - Update expense
+- `GET /expenses/{id}` - View expense details
+- `DELETE /expenses/{id}` - Delete expense
+- `GET /reports/monthly` - Monthly expense report
+- `POST /logout` - User logout
+
+## 🎯 Key Features Explained
+
+### Expense Categorization
+
+The application comes with predefined expense categories:
+
+- **Food** - Daily meals and groceries
+- **Transport** - Public transport, fuel, parking
+- **Shopping** - Retail purchases, online shopping
+- **Others** - Miscellaneous expenses
+
+Each category has a unique color for visual identification in reports and charts.
+
+### Dashboard Analytics
+
+The dashboard provides quick insights:
+
+- Total number of expenses
+- Current month's total spending
+- Today's expenses
+- Recent expense entries
+
+### Monthly Reports
+
+Comprehensive monthly analysis including:
+
+- Total spending by month
+- Category-wise breakdown
+- Visual chart representation
+- Expense count per category
+
+## 🧪 Testing
+
+The application uses Pest PHP for testing:
+
+```bash
+# Run all tests
+composer run test
+
+# Run tests with coverage
+php artisan test --coverage
+```
+
+## 🚀 Deployment
+
+### Production Build
+
+```bash
+npm run build
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+```
+
+### Environment Variables
+
+Ensure these are set in production:
+
+- `APP_ENV=production`
+- `APP_DEBUG=false`
+- `APP_URL` - Your production URL
+- Database credentials
+- `APP_KEY` - Application encryption key
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## 🙏 Acknowledgments
+
+- Built with [Laravel](https://laravel.com/) - The PHP framework for web artisans
+- Styled with [Bootstrap](https://getbootstrap.com/) - The world's most popular CSS framework
+- Icons by [Font Awesome](https://fontawesome.com/) - The web's most popular icon set
+
+## 📞 Support
+
+For support, please open an issue in the GitHub repository or contact the development team.
+
+---
+
+**Built with ❤️ using Laravel**
+
